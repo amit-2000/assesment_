@@ -18,9 +18,11 @@ const Module = ({ mode }) => {
         position={'relative'}
         zIndex={200}
       >
-        <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
-          <MdHome />
-        </IconContext.Provider>
+        <Link to={mode === 'module' ? '/' : ''}>
+          <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
+            <MdHome />
+          </IconContext.Provider>
+        </Link>
       </Box>
       <Box display={{ base: 'inline-block', lg: 'flex' }} width="100%" p={0}>
         <Box
@@ -91,7 +93,7 @@ const Module = ({ mode }) => {
                 content. Lorem ipsum may be used as a placeholder before final
                 copy is available.
               </Text>
-              <Link to={`/modules`} textDecoration="none" >
+              <Link to={`/modules`} textDecoration="none">
                 <Button
                   borderRadius={'full'}
                   mt={20}

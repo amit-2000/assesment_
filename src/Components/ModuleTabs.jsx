@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Image, Text, Button } from '@chakra-ui/react';
 import data from '../Data/data';
+import { Link } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import { MdHome } from 'react-icons/md';
 
 const ModuleTabs = () => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -10,6 +13,20 @@ const ModuleTabs = () => {
   console.log(typeof id);
   return (
     <Box>
+      <Box
+        textAlign={'right'}
+        mr={8}
+        mt={5}
+        cursor="pointer"
+        position={'relative'}
+        zIndex={200}
+      >
+        <Link to="/modules">
+          <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
+            <MdHome />
+          </IconContext.Provider>
+        </Link>
+      </Box>
       <Text as="h2" color="Blue">
         Module {parseInt(id)}
       </Text>
