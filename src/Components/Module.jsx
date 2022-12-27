@@ -3,7 +3,11 @@ import { Box, Image, Text, Button } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { IconContext } from 'react-icons';
 import { MdHome } from 'react-icons/md';
-const Module = () => {
+import { Link } from 'react-router-dom';
+
+import data from '../Data/data';
+const Module = ({ mode }) => {
+  console.log(mode);
   return (
     <Box>
       <Box
@@ -25,7 +29,6 @@ const Module = () => {
           mt={-10}
           opacity={{ base: 0.6, lg: 1 }}
         >
-
           <Image
             borderRadius={10}
             fit={'cover'}
@@ -42,40 +45,68 @@ const Module = () => {
           alignItems={{ base: 'center' }}
           justifyContent={{ base: 'center' }}
         >
-          <Box
-            width={'300px'}
-            textAlign={{ base: 'center', lg: 'left' }}
-            color="blue.500"
-            fontWeight={600}
-          >
-            <Box cursor={'pointer'} borderBottom={'2px solid #b3b4b5'}>
-              <Text>Module One</Text>
-            </Box>
-            <Box cursor={'pointer'} borderBottom={'2px solid #b3b4b5'}>
-              <Text>Module Two</Text>
-            </Box>
-            <Box cursor={'pointer'} borderBottom={'2px solid #b3b4b5'}>
-              <Text>Module Three</Text>
-            </Box>
-            <Box cursor={'pointer'} borderBottom={'2px solid #b3b4b5'}>
-              <Text>Module Four</Text>
-            </Box>
-            <Box cursor={'pointer'} borderBottom={'2px solid #b3b4b5'}>
-              <Text>Module Five</Text>
-            </Box>
-            <Button
-              borderRadius={'full'}
-              mt={20}
-              colorScheme="facebook"
-              variant="solid"
-              p={5}
-              w={'100%'}
-              cursor='pointer'
+          {mode === 'module' ? (
+            <Box
+              width={'300px'}
+              textAlign={{ base: 'center', lg: 'left' }}
+              color="blue.500"
+              fontWeight={600}
             >
-              Select Module
-              {<ChevronRightIcon ml={'10px'} boxSize={'20px'} />}
-            </Button>
-          </Box>
+              {data.map((item, idx) => {
+                return (
+                  <Box
+                    id={idx}
+                    cursor={'pointer'}
+                    borderBottom={'2px solid #b3b4b5'}
+                  >
+                    <Link to={`/module/${idx + 1}`}>
+                      <Text>Module {idx + 1}</Text>
+                    </Link>
+                  </Box>
+                );
+              })}
+
+              <Button
+                borderRadius={'full'}
+                mt={20}
+                colorScheme="facebook"
+                variant="solid"
+                p={5}
+                w={'100%'}
+                cursor="pointer"
+              >
+                Select Module
+                {<ChevronRightIcon ml={'10px'} boxSize={'20px'} />}
+              </Button>
+            </Box>
+          ) : (
+            <Box width={'400px'}>
+              <Text as="h1">Enter into the Modules</Text>
+              <Text>
+                In publishing and graphic design, Lorem ipsum is a placeholder
+                text commonly used to demonstrate the visual form of a document
+                or a typeface without relying on meaningful content. Lorem ipsum
+                may be used as text commonly used to demonstrate the visual form
+                of a document or a typeface without relying on meaningful
+                content. Lorem ipsum may be used as a placeholder before final
+                copy is available.
+              </Text>
+              <Link to={`/modules`} textDecoration="none" >
+                <Button
+                  borderRadius={'full'}
+                  mt={20}
+                  colorScheme="facebook"
+                  variant="solid"
+                  p={5}
+                  w={'100%'}
+                  cursor="pointer"
+                >
+                  Select Module
+                  {<ChevronRightIcon ml={'10px'} boxSize={'20px'} />}
+                </Button>
+              </Link>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>
