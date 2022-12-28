@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Box, Image, Text } from '@chakra-ui/react';
 import data from '../Data/data';
 import { Link } from 'react-router-dom';
-import { IconContext } from 'react-icons';
 import { MdHome } from 'react-icons/md';
+import { IconContext } from 'react-icons';
 import { BiSearchAlt2 } from 'react-icons/bi';
 const ModuleTabs = () => {
   const [currentTab, setCurrentTab] = useState(0);
