@@ -5,7 +5,7 @@ import data from '../Data/data';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdHome } from 'react-icons/md';
-
+import { BiSearchAlt2 } from 'react-icons/bi';
 const ModuleTabs = () => {
   const [currentTab, setCurrentTab] = useState(0);
   const { id } = useParams();
@@ -15,12 +15,19 @@ const ModuleTabs = () => {
     <Box>
       <Box
         textAlign={'right'}
-        mr={{ base: 2, lg: 7 }}
+        mr={{ base: 2, lg: 8 }}
         mt={5}
         cursor="pointer"
         position={'relative'}
         zIndex={200}
+        display="flex"
+        justifyContent={'flex-end'}
       >
+        <Box mt={3}>
+          <IconContext.Provider value={{ size: '3.2em', color: 'gray' }}>
+            <BiSearchAlt2 />
+          </IconContext.Provider>
+        </Box>
         <Link to="/modules">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
@@ -28,9 +35,9 @@ const ModuleTabs = () => {
         </Link>
       </Box>
       <Text
-        as="h1"
+        as={'h1'}
         fontWeight={400}
-        color="Blue"
+        color="#FFF"
         w={{ base: '100%', lg: '87%' }}
         m={'0 auto'}
         mb="5"
@@ -76,7 +83,7 @@ const ModuleTabs = () => {
           color="black"
           display={'flex'}
           flexDir={{ base: 'column', lg: 'row' }}
-          mt={5}
+          mt={0}
           p={{ base: 2, lg: 7 }}
         >
           <Image
