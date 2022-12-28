@@ -76,7 +76,7 @@ const Module = ({ mode }) => {
 
               <Button
                 borderRadius={'full'}
-                mt={20}
+                mt={{ base: 8, lg: 20 }}
                 colorScheme="facebook"
                 variant="solid"
                 p={5}
@@ -99,10 +99,10 @@ const Module = ({ mode }) => {
                 content. Lorem ipsum may be used as a placeholder before final
                 copy is available.
               </Text>
-              <Link style={{ textDecoration: 'none' }} to={`/modules`}>
+              <Link style={{ textDecoration: 'none' }} to={`/module`}>
                 <Button
                   borderRadius={'full'}
-                  mt={20}
+                  mt={{ base: 8, lg: 20 }}
                   colorScheme="facebook"
                   variant="solid"
                   p={5}
