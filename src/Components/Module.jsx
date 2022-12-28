@@ -12,7 +12,7 @@ const Module = ({ mode }) => {
     <Box>
       <Box
         textAlign={'right'}
-        mr={8}
+        mr={{base:2 , lg:8}}
         mt={5}
         cursor="pointer"
         position={'relative'}
@@ -82,7 +82,7 @@ const Module = ({ mode }) => {
               </Button>
             </Box>
           ) : (
-            <Box>
+            <Box p={5}>
               <Text as="h1">Enter into the Modules</Text>
               <Text>
                 In publishing and graphic design, Lorem ipsum is a placeholder

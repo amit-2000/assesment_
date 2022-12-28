@@ -15,7 +15,7 @@ const ModuleTabs = () => {
     <Box>
       <Box
         textAlign={'right'}
-        mr={8}
+        mr={{ base: 2, lg: 7 }}
         mt={5}
         cursor="pointer"
         position={'relative'}
@@ -27,7 +27,14 @@ const ModuleTabs = () => {
           </IconContext.Provider>
         </Link>
       </Box>
-      <Text as="h2" color="Blue">
+      <Text
+        as="h1"
+        fontWeight={400}
+        color="Blue"
+        w={{ base: '100%', lg: '87%' }}
+        m={'0 auto'}
+        mb="5"
+      >
         Module {parseInt(id)}
       </Text>
       <Box
@@ -36,7 +43,7 @@ const ModuleTabs = () => {
         justifyContent="center"
         alignItems={'center'}
         flexDir="column"
-        w={'87%'}
+        w={{ base: '100%', lg: '87%' }}
         m={'0 auto'}
       >
         <Box
@@ -49,7 +56,7 @@ const ModuleTabs = () => {
           {ModuleTabList.map((tab, tab_index) => {
             return (
               <Box
-                p={3}
+                p={{ base: 0, lg: 3 }}
                 m={'0 2px 0 0'}
                 mb="-.5px"
                 mr={tab_index === 2 ? '0px' : '2px'}
@@ -60,20 +67,26 @@ const ModuleTabs = () => {
                 textAlign={'center'}
                 cursor="pointer"
               >
-                <Text as="h3">Tab {tab_index + 1}</Text>
+                <Text as="h4">Tab {tab_index + 1}</Text>
               </Box>
             );
           })}
         </Box>
-        <Box color="black" display={'flex'} mt={5} p={7}>
+        <Box
+          color="black"
+          display={'flex'}
+          flexDir={{ base: 'column', lg: 'row' }}
+          mt={5}
+          p={{ base: 2, lg: 7 }}
+        >
           <Image
             src={ModuleTabList[currentTab].img}
             fit={'cover'}
-            boxSize={'50%'}
+            boxSize={{ base: '100%', lg: '50%' }}
           ></Image>
-          <Box ml={5}>
+          <Box ml={4}>
             <Text as={'h3'}>{ModuleTabList[currentTab].name}</Text>
-            <Text lineHeight="200%">
+            <Text lineHeight={{ base: '170%', lg: '200%' }}>
               {ModuleTabList[currentTab].discription}
             </Text>
           </Box>
