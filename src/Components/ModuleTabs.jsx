@@ -24,13 +24,13 @@ const ModuleTabs = () => {
         justifyContent={'flex-end'}
       >
         <Box mr={4} cursor="pointer">
-          <Link to="/search">
+          <Link style={{ textDecoration: 'none' }} to="/search">
             <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
               <BiSearchAlt2 />
             </IconContext.Provider>
           </Link>
         </Box>
-        <Link to="/module" cursor="pointer">
+        <Link style={{ textDecoration: 'none' }} to="/module" cursor="pointer">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>

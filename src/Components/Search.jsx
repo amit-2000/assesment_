@@ -33,7 +33,7 @@ const Search = () => {
         display="flex"
         justifyContent={'flex-end'}
       >
-        <Link to="/module" cursor="pointer">
+        <Link style={{ textDecoration: 'none' }} to="/module" cursor="pointer">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>
@@ -67,7 +67,10 @@ const Search = () => {
         {serachResults?.map(item => {
           return (
             <Box mt={4} bg="#FFF" p={5}>
-              <Link to={`/module/${item.module_no}/tab/${item.tab}`}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                to={`/module/${item.module_no}/tab/${item.tab}`}
+              >
                 <Box
                   display={'flex'}
                   flexDir={{ base: 'column', lg: 'row' }}

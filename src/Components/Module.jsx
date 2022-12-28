@@ -12,13 +12,16 @@ const Module = ({ mode }) => {
     <Box>
       <Box
         textAlign={'right'}
-        mr={{base:2 , lg:8}}
+        mr={{ base: 2, lg: 8 }}
         mt={5}
         cursor="pointer"
         position={'relative'}
         zIndex={200}
       >
-        <Link to={mode === 'module' ? '/' : ''}>
+        <Link
+          style={{ textDecoration: 'none' }}
+          to={mode === 'module' ? '/' : ''}
+        >
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>
@@ -61,7 +64,10 @@ const Module = ({ mode }) => {
                     cursor={'pointer'}
                     borderBottom={'2px solid #b3b4b5'}
                   >
-                    <Link to={`/module/${idx + 1}`}>
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      to={`/module/${idx + 1}`}
+                    >
                       <Text>Module {idx + 1}</Text>
                     </Link>
                   </Box>
@@ -93,7 +99,7 @@ const Module = ({ mode }) => {
                 content. Lorem ipsum may be used as a placeholder before final
                 copy is available.
               </Text>
-              <Link to={`/modules`} textDecoration="none">
+              <Link style={{ textDecoration: 'none' }} to={`/modules`}>
                 <Button
                   borderRadius={'full'}
                   mt={20}
