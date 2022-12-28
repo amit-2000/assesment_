@@ -82,7 +82,7 @@ const Module = ({ mode }) => {
               </Button>
             </Box>
           ) : (
-            <Box width={'400px'}>
+            <Box>
               <Text as="h1">Enter into the Modules</Text>
               <Text>
                 In publishing and graphic design, Lorem ipsum is a placeholder

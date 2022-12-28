@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Image, Text, Button } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 import data from '../Data/data';
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
@@ -46,21 +46,21 @@ const ModuleTabs = () => {
           color="gray"
           borderBottom={'3px solid gray'}
         >
-          {ModuleTabList.map((tab, idx) => {
+          {ModuleTabList.map((tab, tab_index) => {
             return (
               <Box
                 p={3}
                 m={'0 2px 0 0'}
                 mb="-.5px"
-                mr={idx === 2 ? '0px' : '2px'}
-                bg={currentTab === idx ? '#FFF' : 'blue.100'}
-                color={currentTab === idx ? 'blue' : 'gray'}
-                onClick={() => setCurrentTab(idx)}
+                mr={tab_index === 2 ? '0px' : '2px'}
+                bg={currentTab === tab_index ? '#FFF' : 'blue.100'}
+                color={currentTab === tab_index ? 'blue' : 'gray'}
+                onClick={() => setCurrentTab(tab_index)}
                 w="100%"
                 textAlign={'center'}
                 cursor="pointer"
               >
-                <Text as="h3">Tab {idx + 1}</Text>
+                <Text as="h3">Tab {tab_index + 1}</Text>
               </Box>
             );
           })}
