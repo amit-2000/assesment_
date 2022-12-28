@@ -4,6 +4,7 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import Module from './Components/Module';
 import ModuleTabs from './Components/ModuleTabs';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Search from './Components/Search';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Module mode={'home'} />} />
+          <Route path="/search" element={<Search />} />
+
           <Route path="/modules" element={<Module mode={'module'} />} />
           <Route path="/module/:id" element={<ModuleTabs />} />
         </Routes>

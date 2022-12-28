@@ -17,18 +17,19 @@ const ModuleTabs = () => {
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
         mt={5}
-        cursor="pointer"
         position={'relative'}
         zIndex={200}
         display="flex"
         justifyContent={'flex-end'}
       >
-        <Box mt={3}>
-          <IconContext.Provider value={{ size: '3.2em', color: 'gray' }}>
-            <BiSearchAlt2 />
-          </IconContext.Provider>
+        <Box mt={3} cursor="pointer">
+          <Link to="/search">
+            <IconContext.Provider value={{ size: '3.2em', color: 'gray' }}>
+              <BiSearchAlt2 />
+            </IconContext.Provider>
+          </Link>
         </Box>
-        <Link to="/modules">
+        <Link to="/modules" cursor="pointer">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>
@@ -37,7 +38,7 @@ const ModuleTabs = () => {
       <Text
         as={'h1'}
         fontWeight={400}
-        color="#FFF"
+        color="blue.300"
         w={{ base: '100%', lg: '87%' }}
         m={'0 auto'}
         mb="5"
