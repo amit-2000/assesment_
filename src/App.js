@@ -15,8 +15,9 @@ function App() {
           <Route path="/" element={<Module mode={'home'} />} />
           <Route path="/search" element={<Search />} />
 
-          <Route path="/modules" element={<Module mode={'module'} />} />
+          <Route path="/module" element={<Module mode={'module'} />} />
           <Route path="/module/:id" element={<ModuleTabs />} />
+          <Route path="/module/:id/tab/:tab" element={<ModuleTabs />} />
         </Routes>
       </Router>
     </ChakraProvider>

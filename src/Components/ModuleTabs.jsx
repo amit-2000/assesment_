@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image, TabList, Text } from '@chakra-ui/react';
 import data from '../Data/data';
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { BiSearchAlt2 } from 'react-icons/bi';
 const ModuleTabs = () => {
-  const [currentTab, setCurrentTab] = useState(0);
-  const { id } = useParams();
+  const { id, tab } = useParams();
+  const ct = tab || 1;
+  const [currentTab, setCurrentTab] = useState(ct - 1);
   const ModuleTabList = data[id - 1];
-  console.log(typeof id);
+  console.log(ModuleTabList);
   return (
     <Box>
       <Box
@@ -22,14 +23,14 @@ const ModuleTabs = () => {
         display="flex"
         justifyContent={'flex-end'}
       >
-        <Box mt={3} cursor="pointer">
+        <Box mr={4} cursor="pointer">
           <Link to="/search">
-            <IconContext.Provider value={{ size: '3.2em', color: 'gray' }}>
+            <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
               <BiSearchAlt2 />
             </IconContext.Provider>
           </Link>
         </Box>
-        <Link to="/modules" cursor="pointer">
+        <Link to="/module" cursor="pointer">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>
@@ -75,7 +76,7 @@ const ModuleTabs = () => {
                 textAlign={'center'}
                 cursor="pointer"
               >
-                <Text as="h4">Tab {tab_index + 1}</Text>
+                <Text as="h4">Tab {tab.tab}</Text>
               </Box>
             );
           })}
@@ -93,7 +94,7 @@ const ModuleTabs = () => {
             boxSize={{ base: '100%', lg: '50%' }}
           ></Image>
           <Box ml={4}>
-            <Text as={'h3'}>{ModuleTabList[currentTab].name}</Text>
+            <Text as={'h3'}>{ModuleTabList[currentTab].title}</Text>
             <Text lineHeight={{ base: '170%', lg: '200%' }}>
               {ModuleTabList[currentTab].discription}
             </Text>

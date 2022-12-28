@@ -12,7 +12,7 @@ const Search = () => {
       const matchingStrings = data
         .flat()
         .filter(str =>
-          str.name.match(
+          str.title.match(
             new RegExp(searchinput?.length > 0 ? searchinput : null, 'i')
           )
         );
@@ -33,7 +33,7 @@ const Search = () => {
         display="flex"
         justifyContent={'flex-end'}
       >
-        <Link to="/modules" cursor="pointer">
+        <Link to="/module" cursor="pointer">
           <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
             <MdHome />
           </IconContext.Provider>
@@ -52,7 +52,7 @@ const Search = () => {
           <Input
             variant="unstyled"
             background={'transparent'}
-            placeholder="search..."
+            placeholder="Enter Title..."
             border={'none'}
             fontSize="16px"
             p={1}
@@ -67,17 +67,26 @@ const Search = () => {
         {serachResults?.map(item => {
           return (
             <Box mt={4} bg="#FFF" p={5}>
-              <Box display={'flex'} height="150px">
-                <Box flex={'0 0 30%'}>
-                  <Image fit={'cover'} boxSize="100%" src={item.img}></Image>
+              <Link to={`/module/${item.module_no}/tab/${item.tab}`}>
+                <Box
+                  display={'flex'}
+                  flexDir={{ base: 'column', lg: 'row' }}
+                  height={{ base: 'auto', lg: '150px' }}
+                >
+                  <Box flex={'0 0 30%'}>
+                    <Image fit={'cover'} boxSize="100%" src={item.img}></Image>
+                  </Box>
+                  <Box flex={1} ml={3} color="blue.400">
+                    <Text as="h3">{item.title}</Text>
+                    <Text as={'span'} mt={1} color="gray.500">
+                      {item.discription.substring(0, 209)}{' '}
+                      <Text as={'span'} color="blue">
+                        Read more...
+                      </Text>
+                    </Text>
+                  </Box>
                 </Box>
-                <Box flex={1} ml={3} color="blue.400">
-                  <Text as="h3">{item.name}</Text>
-                  <Text mt={1} color="gray.500">
-                    {item.discription}
-                  </Text>
-                </Box>
-              </Box>
+              </Link>
             </Box>
           );
         })}
