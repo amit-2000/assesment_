@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box, Image, Input, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
@@ -7,6 +7,11 @@ import data from '../Data/data';
 const Search = () => {
   const [serachResults, setSearchResults] = useState([]);
   const [searchinput, setSearchinput] = useState(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   useEffect(() => {
     const getSearchResult = () => {
       const matchingStrings = data
@@ -56,6 +61,7 @@ const Search = () => {
             border={'none'}
             fontSize="16px"
             p={1}
+            ref={inputRef}
             onChange={e => setSearchinput(e.target.value)}
           />
         </Box>
