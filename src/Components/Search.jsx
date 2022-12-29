@@ -60,7 +60,7 @@ const Search = () => {
   };
 
   return (
-    <Box height={'100vh'}>
+    <Box height={'100vh'} bg="#eee">
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
@@ -84,9 +84,10 @@ const Search = () => {
         fontSize={'13px'}
         fontWeight="400"
       >
-        <Text>Type here to Search</Text>
+        <Text color={'gray'}>Type here to Search</Text>
         <Box borderBottom={'3px solid gray'}>
           <Input
+            color={'gray'}
             variant="unstyled"
             background={'transparent'}
             placeholder="Enter Title... eg. Morbi acru "
@@ -98,12 +99,14 @@ const Search = () => {
           />
         </Box>
         {serachResults.length > 0 ? (
-          <Text mb={-2}>showing {matchingStrings?.length} results...</Text>
+          <Text mb={-2} color={'gray'}>
+            showing {matchingStrings?.length} results...
+          </Text>
         ) : (
           ''
         )}
         {inputString?.length > 0 && matchingStrings.length === 0 ? (
-          <Text>No result found</Text>
+          <Text color={'gray'}>No result found</Text>
         ) : (
           ''
         )}
