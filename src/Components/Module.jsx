@@ -48,12 +48,13 @@ const Module = ({ mode }) => {
           display={{ base: 'flex' }}
           alignItems={{ base: 'center' }}
           justifyContent={{ base: 'center' }}
+          
         >
           {mode === 'module' ? (
             <Box
               width={'300px'}
               textAlign={{ base: 'center', lg: 'left' }}
-              color="blue.500"
+              color="blue.900"
               fontWeight={600}
             >
               {data.map((item, idx) => {
@@ -70,7 +71,7 @@ const Module = ({ mode }) => {
                         textDecoration: 'none',
                       }}
                     >
-                      <Text>Module {idx + 1}</Text>
+                      <Text fontSize={'20px'}>Module {idx + 1}</Text>
                     </Link>
                   </Box>
                 );
@@ -79,6 +80,7 @@ const Module = ({ mode }) => {
               <Button
                 borderRadius={'full'}
                 border="none"
+                fontWeight={400}
                 mt={{ base: 8, lg: 20 }}
                 colorScheme="facebook"
                 variant="solid"
@@ -92,10 +94,10 @@ const Module = ({ mode }) => {
             </Box>
           ) : (
             <Box p={5}>
-              <Text as="h1" color="blue.700">
+              <Text as="h1" color="blue.900">
                 Enter into the Modules
               </Text>
-              <Text color="blue.500">
+              <Text color="blue.900">
                 In publishing and graphic design, Lorem ipsum is a placeholder
                 text commonly used to demonstrate the visual form of a document
                 or a typeface without relying on meaningful content. Lorem ipsum
@@ -106,6 +108,7 @@ const Module = ({ mode }) => {
               </Text>
               <Link style={{ textDecoration: 'none' }} to={`/module`}>
                 <Button
+                  fontWeight={400}
                   borderRadius={'full'}
                   border="none"
                   mt={{ base: 8, lg: 20 }}
