@@ -25,7 +25,7 @@ const ModuleTabs = () => {
       >
         <Box mr={4} cursor="pointer">
           <Link style={{ textDecoration: 'none' }} to="/search">
-            <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
+            <IconContext.Provider value={{ size: '2.2em', color: 'blue.700' }}>
               <BiSearchAlt2 />
             </IconContext.Provider>
           </Link>
@@ -39,7 +39,7 @@ const ModuleTabs = () => {
       <Text
         as={'h1'}
         fontWeight={400}
-        color="blue.300"
+        color="blue.700"
         w={{ base: '100%', lg: '87%' }}
         m={'0 auto'}
         mb="5"
@@ -94,7 +94,7 @@ const ModuleTabs = () => {
             boxSize={{ base: '100%', lg: '50%' }}
           ></Image>
           <Box ml={4}>
-            <Text as={'h3'} color="blue.400">
+            <Text as={'h3'} color="blue.700">
               {ModuleTabList[currentTab].title}
             </Text>
             <Text color="gray.500" lineHeight={{ base: '170%', lg: '200%' }}>

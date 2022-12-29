@@ -125,7 +125,7 @@ const Search = () => {
                   <Box flex={'0 0 30%'}>
                     <Image fit={'cover'} boxSize="100%" src={item.img}></Image>
                   </Box>
-                  <Box flex={1} ml={3} color="blue.400">
+                  <Box flex={1} ml={3} color="blue.700">
                     <Text as="h3">{item.title}</Text>
                     <Text as={'span'} mt={1} color="gray.500">
                       {item.discription.substring(0, 209)}{' '}

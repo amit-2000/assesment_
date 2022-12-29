@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 // import Home from './Components/Home';
 import Module from './Components/Module';
 import ModuleTabs from './Components/ModuleTabs';
@@ -8,7 +8,7 @@ import Search from './Components/Search';
 
 function App() {
   return (
-    <ChakraProvider  resetCSS={false}>
+    <ChakraProvider resetCSS={false}>
       <Router>
         <Routes>
           <Route path="/" element={<Module mode={'home'} />} />
