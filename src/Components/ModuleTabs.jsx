@@ -47,7 +47,7 @@ const ModuleTabs = () => {
         Module {parseInt(id)}
       </Text>
       <Box
-        bg="#fff"
+        bg="#eee"
         display={'flex'}
         justifyContent="center"
         alignItems={'center'}
