@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Image, Input, Text } from '@chakra-ui/react';
+import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
+
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
 import { IconContext } from 'react-icons';
-import Paginate from 'react-paginate';
+// import Paginate from 'react-paginate';
 import data from '../Data/data';
 const Search = () => {
   const [serachResults, setSearchResults] = useState([]);
-  const [searchinput, setSearchinput] = useState(null);
+  const [inputString, setInputString] = useState(null);
   const [itemOffset, setItemOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
+  const [matchingStrings, setMatchingStrings] = useState([]);
   const inputRef = useRef(null);
   // Get focus on input field._________________________________
   useEffect(() => {
@@ -17,54 +19,46 @@ const Search = () => {
   }, []);
   // Find search results form the data._________________________________________
   useEffect(() => {
-    const getSearchResult = () => {
-      const matchingStrings = data
+    let getSearchResult = () => {
+      let resultArray = data
         .flat()
         .filter(str =>
           str.title.match(
-            new RegExp(searchinput?.length > 0 ? searchinput : null, 'i')
+            new RegExp(inputString?.length > 0 ? inputString : null, 'i')
           )
         );
 
-      // setSearchResults(matchingStrings);
+      setMatchingStrings(resultArray);
+      setItemOffset(0);
     };
     getSearchResult();
-  }, [searchinput]);
+  }, [inputString]);
   // ________________________________________________________________________________________________
   // Pagination Logic Begins
   let itemsPerPage = 3;
 
   useEffect(() => {
     const callme = () => {
-      const matchingStrings = data
-        .flat()
-        .filter(str =>
-          str.title.match(
-            new RegExp(searchinput?.length > 0 ? searchinput : null, 'i')
-          )
-        );
-
       const endOffset = itemOffset + itemsPerPage;
-      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-      let newPageCount = Math.ceil(matchingStrings.length / itemsPerPage);
+      // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+      // let newPageCount = Math.ceil(matchingStrings.length / itemsPerPage);
       const currentItems = matchingStrings.slice(itemOffset, endOffset);
-      setPageCount(newPageCount);
-      console.log(currentItems);
       setSearchResults(currentItems);
     };
     callme();
-  }, [itemOffset, searchinput]);
-  console.log(pageCount);
+  }, [itemOffset, itemsPerPage, matchingStrings]);
   //
-  const handlePageClick = pageNO => {
-    console.log('Hello world', pageNO);
-    const newOffset = pageNO + 3;
-    console.log(
-      `User requested page number ${pageNO}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
+  const handlePageClick = (itemOffset, action) => {
+    if (action === 'prev') {
+      setItemOffset(itemOffset - 3);
+    } else {
+      setItemOffset(itemOffset + 3);
+    }
+    // console.log(
+    //   `User requested page number ${itemOffset}, which is offset ${itemOffset}`
+    // );
   };
-  console.log(itemOffset);
+
   return (
     <Box height={'100vh'}>
       <Box
@@ -95,22 +89,27 @@ const Search = () => {
           <Input
             variant="unstyled"
             background={'transparent'}
-            placeholder="Enter Title..."
+            placeholder="Enter Title... eg. Morbi acru "
             border={'none'}
             fontSize="16px"
             p={1}
             ref={inputRef}
-            onChange={e => setSearchinput(e.target.value)}
+            onChange={e => setInputString(e.target.value)}
           />
         </Box>
         {serachResults.length > 0 ? (
-          <Text>showing {serachResults?.length} results...</Text>
+          <Text mb={-2}>showing {matchingStrings?.length} results...</Text>
+        ) : (
+          ''
+        )}
+        {inputString?.length > 0 && matchingStrings.length === 0 ? (
+          <Text>No result found</Text>
         ) : (
           ''
         )}
         {serachResults?.map(item => {
           return (
-            <Box mt={4} bg="#FFF" p={5}>
+            <Box mt={3} bg="#FFF" p={5}>
               <Link
                 style={{ textDecoration: 'none' }}
                 to={`/module/${item.module_no}/tab/${item.tab}`}
@@ -137,18 +136,48 @@ const Search = () => {
             </Box>
           );
         })}
-      </Box>
-
-      <Box cursor={'pointer'}>
-        {itemOffset > 1 && (
-          <button onClick={() => handlePageClick(itemOffset - 1)}>
-            Previous
-          </button>
+        {matchingStrings.length > 3 && (
+          <Box textAlign={'right'} mt={4}>
+            <button
+              style={{
+                background: 'none',
+                border: 'none',
+              }}
+              disabled={itemOffset > 1 ? false : true}
+              onClick={() => handlePageClick(itemOffset, 'prev')}
+            >
+              {
+                <ChevronLeftIcon
+                  cursor={'pointer'}
+                  ml={'10px'}
+                  boxSize={10}
+                  color={itemOffset > 1 ? 'blue.400' : 'gray'}
+                />
+              }
+            </button>
+            <button
+              disabled={itemOffset < matchingStrings.length - 3 ? false : true}
+              onClick={() => handlePageClick(itemOffset, 'next')}
+              style={{
+                background: 'none',
+                border: 'none',
+              }}
+            >
+              {
+                <ChevronRightIcon
+                  cursor={'pointer'}
+                  ml={'10px'}
+                  color={
+                    itemOffset < matchingStrings.length - 3
+                      ? 'blue.400'
+                      : 'gray'
+                  }
+                  boxSize={10}
+                />
+              }
+            </button>
+          </Box>
         )}
-        {/* {1++} of {pageCount} */}
-        {/* {itemOffset < pageCount && ( */}
-        <button onClick={() => handlePageClick(itemOffset + 1)}>Next</button>
-        {/* // )} */}
       </Box>
     </Box>
   );
