@@ -67,9 +67,9 @@ const ModuleTabs = () => {
               <Box
                 p={{ base: 0, lg: 3 }}
                 m={'0 2px 0 0'}
-                mb="-.5px"
+                mb="-.4px"
                 mr={tab_index === 2 ? '0px' : '2px'}
-                bg={currentTab === tab_index ? '#FFF' : 'blue.100'}
+                bg={currentTab === tab_index ? '#eee' : 'blue.100'}
                 color={currentTab === tab_index ? 'blue' : 'gray'}
                 onClick={() => setCurrentTab(tab_index)}
                 w="100%"
