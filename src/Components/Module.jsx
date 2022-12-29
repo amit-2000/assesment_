@@ -6,8 +6,9 @@ import { MdHome } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import data from '../Data/data';
+
 const Module = ({ mode }) => {
-  console.log(mode);
+  // modes can be {Home or modules } 
   return (
     <Box color="blue.700">
       <Box
@@ -48,7 +49,6 @@ const Module = ({ mode }) => {
           display={{ base: 'flex' }}
           alignItems={{ base: 'center' }}
           justifyContent={{ base: 'center' }}
-          
         >
           {mode === 'module' ? (
             <Box

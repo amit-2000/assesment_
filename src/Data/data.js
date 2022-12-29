@@ -1,3 +1,11 @@
+// a Database contains array of array of modules and tabs resp.
+// module_data=[
+//   [
+//     {tab1:{tab_id,module_no,title,discription,img}},
+//     tab2,
+//     tab3
+//   ]
+// ]
 const module__data = [
   [
     {

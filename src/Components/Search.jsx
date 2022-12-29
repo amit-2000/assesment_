@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Image, Input, Text } from '@chakra-ui/react';
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
-
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
 import { IconContext } from 'react-icons';
-// import Paginate from 'react-paginate';
 import data from '../Data/data';
+
 const Search = () => {
   const [serachResults, setSearchResults] = useState([]);
-  const [inputString, setInputString] = useState(null);
-  const [itemOffset, setItemOffset] = useState(0);
-  const [matchingStrings, setMatchingStrings] = useState([]);
+  const [inputString, setInputString] = useState(null); //user input string.
+  const [itemOffset, setItemOffset] = useState(0); //starting pos of result from res array.
+  const [matchingStrings, setMatchingStrings] = useState([]); //all matched string results.
   const inputRef = useRef(null);
+
   // Get focus on input field._________________________________
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-  // Find search results form the data._________________________________________
+
+  // Find search results for inputed string form the database. and reset offset to 0 for new search._________________________________________
   useEffect(() => {
     let getSearchResult = () => {
       let resultArray = data
@@ -29,34 +30,33 @@ const Search = () => {
         );
 
       setMatchingStrings(resultArray);
+
       setItemOffset(0);
     };
     getSearchResult();
   }, [inputString]);
-  // ________________________________________________________________________________________________
+  //__________________________________________________________________________________________
   // Pagination Logic Begins
   let itemsPerPage = 3;
-
   useEffect(() => {
-    const callme = () => {
+    //get search result for single page.
+    const getSliceOfResult = () => {
       const endOffset = itemOffset + itemsPerPage;
-      // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-      // let newPageCount = Math.ceil(matchingStrings.length / itemsPerPage);
       const currentItems = matchingStrings.slice(itemOffset, endOffset);
       setSearchResults(currentItems);
     };
-    callme();
-  }, [itemOffset, itemsPerPage, matchingStrings]);
-  //
+
+    getSliceOfResult();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemOffset, matchingStrings]);
+
+  //Handle buttons of pagi._________________________________________
   const handlePageClick = (itemOffset, action) => {
     if (action === 'prev') {
       setItemOffset(itemOffset - 3);
     } else {
       setItemOffset(itemOffset + 3);
     }
-    // console.log(
-    //   `User requested page number ${itemOffset}, which is offset ${itemOffset}`
-    // );
   };
 
   return (

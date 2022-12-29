@@ -7,11 +7,11 @@ import { MdHome } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { BiSearchAlt2 } from 'react-icons/bi';
 const ModuleTabs = () => {
-  const { id, tab } = useParams();
-  const ct = tab || 1;
+  //get module_id and tab_id from url params...
+  const { module, tab } = useParams();
+  const ct = tab || 1; //made reuse for routing from search as well as straight.
   const [currentTab, setCurrentTab] = useState(ct - 1);
-  const ModuleTabList = data[id - 1];
-  console.log(ModuleTabList);
+  const ModuleTabList = data[module - 1]; //tabs of module.
   return (
     <Box>
       <Box
@@ -44,7 +44,7 @@ const ModuleTabs = () => {
         m={'0 auto'}
         mb="5"
       >
-        Module {parseInt(id)}
+        Module {parseInt(module)}
       </Text>
       <Box
         bg="#eee"
