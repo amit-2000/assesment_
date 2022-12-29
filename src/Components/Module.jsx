@@ -13,7 +13,6 @@ const Module = ({ mode }) => {
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
-        mt={5}
         cursor="pointer"
         position={'relative'}
         zIndex={200}
@@ -65,8 +64,11 @@ const Module = ({ mode }) => {
                     borderBottom={'2px solid #b3b4b5'}
                   >
                     <Link
-                      style={{ textDecoration: 'none' }}
                       to={`/module/${idx + 1}`}
+                      style={{
+                        color:'inherit',
+                        textDecoration: 'none',
+                      }}
                     >
                       <Text>Module {idx + 1}</Text>
                     </Link>
