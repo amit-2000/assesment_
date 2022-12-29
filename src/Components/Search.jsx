@@ -60,7 +60,7 @@ const Search = () => {
   };
 
   return (
-    <Box height={'100vh'} bg="#eee">
+    <Box h={'auto'} minH={'100vhgit'} bg="#eee">
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
@@ -139,49 +139,47 @@ const Search = () => {
             </Box>
           );
         })}
-        {matchingStrings.length > 3 && (
-          <Box textAlign={'right'} mt={4}>
-            <button
-              style={{
-                background: 'none',
-                border: 'none',
-              }}
-              disabled={itemOffset > 1 ? false : true}
-              onClick={() => handlePageClick(itemOffset, 'prev')}
-            >
-              {
-                <ChevronLeftIcon
-                  cursor={'pointer'}
-                  ml={'10px'}
-                  boxSize={10}
-                  color={itemOffset > 1 ? 'blue.400' : 'gray'}
-                />
-              }
-            </button>
-            <button
-              disabled={itemOffset < matchingStrings.length - 3 ? false : true}
-              onClick={() => handlePageClick(itemOffset, 'next')}
-              style={{
-                background: 'none',
-                border: 'none',
-              }}
-            >
-              {
-                <ChevronRightIcon
-                  cursor={'pointer'}
-                  ml={'10px'}
-                  color={
-                    itemOffset < matchingStrings.length - 3
-                      ? 'blue.400'
-                      : 'gray'
-                  }
-                  boxSize={10}
-                />
-              }
-            </button>
-          </Box>
-        )}
       </Box>
+      {matchingStrings.length > 3 && (
+        <Box textAlign={'right'} mt={4} mr={4}>
+          <button
+            style={{
+              background: 'none',
+              border: 'none',
+            }}
+            disabled={itemOffset > 1 ? false : true}
+            onClick={() => handlePageClick(itemOffset, 'prev')}
+          >
+            {
+              <ChevronLeftIcon
+                cursor={'pointer'}
+                ml={'10px'}
+                boxSize={10}
+                color={itemOffset > 1 ? 'blue.400' : 'gray'}
+              />
+            }
+          </button>
+          <button
+            disabled={itemOffset < matchingStrings.length - 3 ? false : true}
+            onClick={() => handlePageClick(itemOffset, 'next')}
+            style={{
+              background: 'none',
+              border: 'none',
+            }}
+          >
+            {
+              <ChevronRightIcon
+                cursor={'pointer'}
+                ml={'10px'}
+                color={
+                  itemOffset < matchingStrings.length - 3 ? 'blue.400' : 'gray'
+                }
+                boxSize={10}
+              />
+            }
+          </button>
+        </Box>
+      )}
     </Box>
   );
 };
