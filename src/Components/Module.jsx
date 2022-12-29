@@ -109,7 +109,7 @@ const Module = ({ mode }) => {
                   w={'100%'}
                   cursor="pointer"
                 >
-                  Select Module
+                  Enter
                   {<ChevronRightIcon ml={'10px'} boxSize={'20px'} />}
                 </Button>
               </Link>

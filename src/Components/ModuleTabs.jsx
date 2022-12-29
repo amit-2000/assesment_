@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Image, TabList, Text } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 import data from '../Data/data';
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
