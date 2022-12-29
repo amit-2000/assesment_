@@ -60,7 +60,7 @@ const Search = () => {
   };
 
   return (
-    <Box h={'auto'} minH={'100vhgit'} bg="#eee">
+    <Box h={'auto'} minH={'100vh'} bg="#eee"p={2}>
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
