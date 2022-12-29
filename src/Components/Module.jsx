@@ -9,7 +9,7 @@ import data from '../Data/data';
 const Module = ({ mode }) => {
   console.log(mode);
   return (
-    <Box >
+    <Box color="blue.700">
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}
@@ -66,7 +66,7 @@ const Module = ({ mode }) => {
                     <Link
                       to={`/module/${idx + 1}`}
                       style={{
-                        color:'inherit',
+                        color: 'inherit',
                         textDecoration: 'none',
                       }}
                     >
@@ -92,8 +92,10 @@ const Module = ({ mode }) => {
             </Box>
           ) : (
             <Box p={5}>
-              <Text as="h1">Enter into the Modules</Text>
-              <Text>
+              <Text as="h1" color="blue.700">
+                Enter into the Modules
+              </Text>
+              <Text color="blue.500">
                 In publishing and graphic design, Lorem ipsum is a placeholder
                 text commonly used to demonstrate the visual form of a document
                 or a typeface without relying on meaningful content. Lorem ipsum
