@@ -69,14 +69,14 @@ const ModuleTabs = () => {
                 m={'0 2px 0 0'}
                 mb="-.4px"
                 mr={tab_index === 2 ? '0px' : '2px'}
-                bg={currentTab === tab_index ? '#eee' : 'blue.100'}
-                color={currentTab === tab_index ? 'blue' : 'gray'}
+                bg={currentTab === tab_index ? '#eee' : 'blue.700'}
+                color={currentTab === tab_index ? 'blue.700' : '#fff'}
                 onClick={() => setCurrentTab(tab_index)}
                 w="100%"
                 textAlign={'center'}
                 cursor="pointer"
               >
-                <Text as="h4">Tab {tab.tab}</Text>
+                <Text as="h3">Tab {tab.tab}</Text>
               </Box>
             );
           })}
@@ -94,8 +94,10 @@ const ModuleTabs = () => {
             boxSize={{ base: '100%', lg: '50%' }}
           ></Image>
           <Box ml={4}>
-            <Text as={'h3'}>{ModuleTabList[currentTab].title}</Text>
-            <Text lineHeight={{ base: '170%', lg: '200%' }}>
+            <Text as={'h3'} color="blue.400">
+              {ModuleTabList[currentTab].title}
+            </Text>
+            <Text color="gray.500" lineHeight={{ base: '170%', lg: '200%' }}>
               {ModuleTabList[currentTab].discription}
             </Text>
           </Box>
