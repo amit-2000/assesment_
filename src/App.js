@@ -9,7 +9,6 @@ import Search from './Components/Search';
 function App() {
   return (
     <ChakraProvider  resetCSS={false}>
-      {/* <Home /> */}
       <Router>
         <Routes>
           <Route path="/" element={<Module mode={'home'} />} />

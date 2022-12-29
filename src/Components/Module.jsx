@@ -9,7 +9,7 @@ import data from '../Data/data';
 const Module = ({ mode }) => {
   console.log(mode);
   return (
-    <Box>
+    <Box >
       <Box
         textAlign={'right'}
         mr={{ base: 2, lg: 8 }}

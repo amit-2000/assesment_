@@ -3,15 +3,19 @@ import { Box, Image, Input, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { MdHome } from 'react-icons/md';
 import { IconContext } from 'react-icons';
+import Paginate from 'react-paginate';
 import data from '../Data/data';
 const Search = () => {
   const [serachResults, setSearchResults] = useState([]);
   const [searchinput, setSearchinput] = useState(null);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
   const inputRef = useRef(null);
-
+  // Get focus on input field._________________________________
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+  // Find search results form the data._________________________________________
   useEffect(() => {
     const getSearchResult = () => {
       const matchingStrings = data
@@ -22,11 +26,45 @@ const Search = () => {
           )
         );
 
-      setSearchResults(matchingStrings);
+      // setSearchResults(matchingStrings);
     };
     getSearchResult();
   }, [searchinput]);
+  // ________________________________________________________________________________________________
+  // Pagination Logic Begins
+  let itemsPerPage = 3;
 
+  useEffect(() => {
+    const callme = () => {
+      const matchingStrings = data
+        .flat()
+        .filter(str =>
+          str.title.match(
+            new RegExp(searchinput?.length > 0 ? searchinput : null, 'i')
+          )
+        );
+
+      const endOffset = itemOffset + itemsPerPage;
+      console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+      let newPageCount = Math.ceil(matchingStrings.length / itemsPerPage);
+      const currentItems = matchingStrings.slice(itemOffset, endOffset);
+      setPageCount(newPageCount);
+      console.log(currentItems);
+      setSearchResults(currentItems);
+    };
+    callme();
+  }, [itemOffset, searchinput]);
+  console.log(pageCount);
+  //
+  const handlePageClick = pageNO => {
+    console.log('Hello world', pageNO);
+    const newOffset = pageNO + 3;
+    console.log(
+      `User requested page number ${pageNO}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+  console.log(itemOffset);
   return (
     <Box height={'100vh'}>
       <Box
@@ -99,6 +137,18 @@ const Search = () => {
             </Box>
           );
         })}
+      </Box>
+
+      <Box cursor={'pointer'}>
+        {itemOffset > 1 && (
+          <button onClick={() => handlePageClick(itemOffset - 1)}>
+            Previous
+          </button>
+        )}
+        {/* {1++} of {pageCount} */}
+        {/* {itemOffset < pageCount && ( */}
+        <button onClick={() => handlePageClick(itemOffset + 1)}>Next</button>
+        {/* // )} */}
       </Box>
     </Box>
   );
