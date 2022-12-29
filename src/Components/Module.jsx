@@ -76,6 +76,7 @@ const Module = ({ mode }) => {
 
               <Button
                 borderRadius={'full'}
+                border="none"
                 mt={{ base: 8, lg: 20 }}
                 colorScheme="facebook"
                 variant="solid"
@@ -102,6 +103,7 @@ const Module = ({ mode }) => {
               <Link style={{ textDecoration: 'none' }} to={`/module`}>
                 <Button
                   borderRadius={'full'}
+                  border="none"
                   mt={{ base: 8, lg: 20 }}
                   colorScheme="facebook"
                   variant="solid"
