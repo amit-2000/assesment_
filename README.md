@@ -5,7 +5,6 @@
 React.js with Chakra UI.
 
 
-Runs the app in the development mode.<br />
 Open [https://main--funny-hotteok-363618.netlify.app/] (complete project) to view it in the browser.
 
 ### Some key points notice
