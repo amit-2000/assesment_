@@ -1,16 +1,14 @@
 
-## Complete Responsive website
-
-In the project directory, you can run:
+## Completed Responsive website
 
 ### Used technologies
 React.js with Chakra UI.
 
 
 Runs the app in the development mode.<br />
-Open [https://main--funny-hotteok-363618.netlify.app/](complete project) to view it in the browser.
+Open [https://main--funny-hotteok-363618.netlify.app/] (complete project) to view it in the browser.
 
-###Some key points notice
+### Some key points notice
 
 1.Responsive components compatible with mobile as well as Desktop.<br />
 2.Resuable Components.<br />
