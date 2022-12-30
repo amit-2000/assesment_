@@ -13,7 +13,7 @@ React.js with Chakra UI.
 3.Routes for easy understanding.<br />
 4.Search for any article by it's title.<br />
 5.Click on search result to view in it's module. <br />
-5.Implemented pagination for search resuls.<br />
+6.Implemented pagination for search resuls.<br />
 
 ## Open [https://main--funny-hotteok-363618.netlify.app] (complete project) to view it in the browser.
 
