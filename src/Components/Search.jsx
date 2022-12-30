@@ -155,7 +155,7 @@ const Search = () => {
                 cursor={'pointer'}
                 ml={'10px'}
                 boxSize={10}
-                color={itemOffset > 1 ? 'blue.400' : 'gray'}
+                color={itemOffset > 1 ? 'blue.700' : 'gray'}
               />
             }
           </button>
@@ -172,7 +172,7 @@ const Search = () => {
                 cursor={'pointer'}
                 ml={'10px'}
                 color={
-                  itemOffset < matchingStrings.length - 3 ? 'blue.400' : 'gray'
+                  itemOffset < matchingStrings.length - 3 ? 'blue.700' : 'gray'
                 }
                 boxSize={10}
               />

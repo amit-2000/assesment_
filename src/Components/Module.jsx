@@ -8,26 +8,33 @@ import { Link } from 'react-router-dom';
 import data from '../Data/data';
 
 const Module = ({ mode }) => {
-  // modes can be {Home or modules } 
+  // modes can be {Home or modules }
   return (
     <Box color="blue.700">
-      <Box
-        textAlign={'right'}
-        mr={{ base: 2, lg: 8 }}
-        cursor="pointer"
-        position={'relative'}
-        zIndex={200}
-      >
-        <Link
-          style={{ textDecoration: 'none' }}
-          to={mode === 'module' ? '/' : ''}
+      {mode === 'module' && (
+        <Box
+          textAlign={'right'}
+          mr={{ base: 2, lg: 8 }}
+          cursor="pointer"
+          position={'relative'}
+          zIndex={200}
         >
-          <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
-            <MdHome />
-          </IconContext.Provider>
-        </Link>
-      </Box>
-      <Box display={{ base: 'inline-block', lg: 'flex' }} width="100%" p={0}>
+          <Link
+            style={{ textDecoration: 'none' }}
+            to={mode === 'module' ? '/' : ''}
+          >
+            <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
+              <MdHome />
+            </IconContext.Provider>
+          </Link>
+        </Box>
+      )}
+      <Box
+        mt={mode === 'home' ? 12 : 0}
+        display={{ base: 'inline-block', lg: 'flex' }}
+        width="100%"
+        p={0}
+      >
         <Box
           width={{ base: '100%', lg: '60%' }}
           height={'90vh'}
