@@ -5,7 +5,7 @@
 React.js with Chakra UI.
 
 
-Open [https://main--funny-hotteok-363618.netlify.app/] (complete project) to view it in the browser.
+## Open [https://main--funny-hotteok-363618.netlify.app/] (complete project) to view it in the browser.
 
 ### Some key points notice
 
