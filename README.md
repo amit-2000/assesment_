@@ -6,7 +6,7 @@ React.js with Chakra UI.
 
 
 
-### Some key points notice
+### Some key points to notice
 
 1.Responsive components compatible with mobile as well as Desktop.<br />
 2.Resuable Components.<br />
