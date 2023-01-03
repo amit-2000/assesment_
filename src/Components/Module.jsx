@@ -15,14 +15,10 @@ const Module = ({ mode }) => {
         <Box
           textAlign={'right'}
           mr={{ base: 2, lg: 8 }}
-          cursor="pointer"
           position={'relative'}
           zIndex={200}
         >
-          <Link
-            style={{ textDecoration: 'none' }}
-            to={mode === 'module' ? '/' : ''}
-          >
+          <Link style={{ textDecoration: 'none' }} to={'/'} cursor="pointer">
             <IconContext.Provider value={{ size: '2.2em', color: 'gray' }}>
               <MdHome />
             </IconContext.Provider>
@@ -52,10 +48,10 @@ const Module = ({ mode }) => {
           width={{ base: '95%', lg: '40%' }}
           height={'80vh'}
           pos={{ base: 'absolute', lg: 'relative' }}
-          top={{ base: 6 }}
-          display={{ base: 'flex' }}
-          alignItems={{ base: 'center' }}
-          justifyContent={{ base: 'center' }}
+          top={5}
+          display='flex'
+          alignItems='center'
+          justifyContent='center'
         >
           {mode === 'module' ? (
             <Box
